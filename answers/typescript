@@ -1,0 +1,131 @@
+Script iniciado en 2026-05-08 09:46:20-04:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="91" LINES="47"]
+[?2004h]0;jahdiel@PC-Qweed: ~/Documentos/Workspaces/fs-containers-course/fs-containers/answers[01;32mjahdiel@PC-Qweed[00m:[01;34m~/Documentos/Workspaces/fs-containers-course/fs-containers/answers[00m$ docker 
+ container run hello-world
+[?2004l
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+
+[1A[2K
+4f55086f7dd0: Pulling fs layer 
+[1B
+[1A[2K
+d5e71e642bf5: Download complete 
+[1B[2A[2K
+4f55086f7dd0: Download complete 
+[2B[2A[2K
+4f55086f7dd0: Pull complete 
+[2BDigest: sha256:f9078146db2e05e794366b1bfe584a14ea6317f44027d10ef7dad65279026885
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+[?2004h]0;jahdiel@PC-Qweed: ~/Documentos/Workspaces/fs-containers-course/fs-containers/answers[01;32mjahdiel@PC-Qweed[00m:[01;34m~/Documentos/Workspaces/fs-containers-course/fs-containers/answers[00m$ docker 
+ run -i ubuntu bash
+[?2004l
+Unable to find image 'ubuntu:latest' locally
+latest: Pulling from library/ubuntu
+
+[1A[2K
+1c24335ddd46: Pulling fs layer 
+[1B
+[1A[2K
+6f5c5aa4e145: Pulling fs layer 
+[1B
+[1A[2K
+9bcf140d7f0f: Downloading  1.049MB/3.705MB
+[1B[1A[2K
+9bcf140d7f0f: Download complete 
+[1B[3A[2K
+1c24335ddd46: Download complete 
+[3B[2A[2K
+6f5c5aa4e145: Downloading  5.243MB/41.55MB
+[2B[2A[2K
+6f5c5aa4e145: Downloading  11.53MB/41.55MB
+[2B[2A[2K
+6f5c5aa4e145: Downloading  19.92MB/41.55MB
+[2B[2A[2K
+6f5c5aa4e145: Downloading  26.21MB/41.55MB
+[2B[2A[2K
+6f5c5aa4e145: Downloading  33.55MB/41.55MB
+[2B[2A[2K
+6f5c5aa4e145: Downloading   38.8MB/41.55MB
+[2B[2A[2K
+6f5c5aa4e145: Downloading  41.55MB/41.55MB
+[2B[2A[2K
+6f5c5aa4e145: Download complete 
+[2B[2A[2K
+6f5c5aa4e145: Extracting 1 s
+[2B[2A[2K
+6f5c5aa4e145: Extracting 1 s
+[2B[2A[2K
+6f5c5aa4e145: Extracting 1 s
+[2B[2A[2K
+6f5c5aa4e145: Extracting 1 s
+[2B[2A[2K
+6f5c5aa4e145: Extracting 1 s
+[2B[2A[2K
+6f5c5aa4e145: Extracting 1 s
+[2B[2A[2K
+6f5c5aa4e145: Extracting 1 s
+[2B[2A[2K
+6f5c5aa4e145: Extracting 1 s
+[2B[2A[2K
+6f5c5aa4e145: Extracting 1 s
+[2B[2A[2K
+6f5c5aa4e145: Extracting 1 s
+[2B[2A[2K
+6f5c5aa4e145: Extracting 1 s
+[2B[2A[2K
+6f5c5aa4e145: Extracting 2 s
+[2B[2A[2K
+6f5c5aa4e145: Extracting 2 s
+[2B[3A[2K
+1c24335ddd46: Pull complete 
+[3B[2A[2K
+6f5c5aa4e145: Pull complete 
+[2BDigest: sha256:f3d28607ddd78734bb7f71f117f3c6706c666b8b76cbff7c9ff6e5718d46ff64
+Status: Downloaded newer image for ubuntu:latest
+^Cq quiu    x
+bash: line 1: x: command not found
+^C^C
+got 3 SIGTERM/SIGINTs, forcefully exiting
+[?2004h]0;jahdiel@PC-Qweed: ~/Documentos/Workspaces/fs-containers-course/fs-containers/answers[01;32mjahdiel@PC-Qweed[00m:[01;34m~/Documentos/Workspaces/fs-containers-course/fs-containers/answers[00m$ docker run -it ububtu bash[1@=[1P[1P[1@n
+[?2004l
+[?2004h]0;root@1d3d3d5bda07: /root@1d3d3d5bda07:/# usr   mkdir /usr/src/app
+[?2004l
+[?2004h]0;root@1d3d3d5bda07: /root@1d3d3d5bda07:/# ls 
+[?2004l
+[0m[01;36mbin[0m   [01;34mdev[0m  [01;34mhome[0m  [01;36mlib64[0m  [01;34mmnt[0m  [01;34mproc[0m  [01;34mrun[0m   [01;34msrv[0m  [30;42mtmp[0m  [01;34mvar[0m
+[01;34mboot[0m  [01;34metc[0m  [01;36mlib[0m   [01;34mmedia[0m  [01;34mopt[0m  [01;34mroot[0m  [01;36msbin[0m  [01;34msys[0m  [01;34musr[0m
+[?2004h]0;root@1d3d3d5bda07: /root@1d3d3d5bda07:/# cd use r/[1@/usr/srx c/app
+[?2004l
+[?2004h]0;root@1d3d3d5bda07: /usr/src/approot@1d3d3d5bda07:/usr/src/app# touch index.js
+[?2004l
+[?2004h]0;root@1d3d3d5bda07: /usr/src/approot@1d3d3d5bda07:/usr/src/app# exir t
+[?2004l
+exit
+
+[?2004h]0;jahdiel@PC-Qweed: ~/Documentos/Workspaces/fs-containers-course/fs-containers/answers[01;32mjahdiel@PC-Qweed[00m:[01;34m~/Documentos/Workspaces/fs-containers-course/fs-containers/answers[00m$ exit
+[?2004l
+exit
+
+Script terminado en 2026-05-08 09:51:04-04:00 [CÓDIGO_SALIDA_ORDEN="130"]
