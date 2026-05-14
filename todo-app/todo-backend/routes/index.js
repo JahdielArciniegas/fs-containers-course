@@ -16,4 +16,15 @@ router.get("/", async (req, res) => {
   });
 });
 
+router.get("/statistics", async (req, res) => {
+  let pending_todos = await redis.get("pending_todos");
+  if (!pending_todos) {
+    pending_todos = 0;
+  }
+
+  res.send({
+    added_todos: pending_todos,
+  });
+});
+
 module.exports = router;
