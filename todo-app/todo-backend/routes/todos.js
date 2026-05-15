@@ -16,9 +16,11 @@ router.post("/", async (req, res) => {
     done: false,
   });
 
-  const pending_todos = await Todo.countDocuments({ done: false });
+  const pending_todos = await redis.get("pending_todos");
+  const parsedPendingTodos = JSON.parse(pending_todos);
+  console.log("pending todos", parsedPendingTodos);
 
-  redis.set("pending_todos", JSON.stringify({ pending_todos }));
+  await redis.set("pending_todos", JSON.stringify(parsedPendingTodos + 1));
 
   res.send(todo);
 });

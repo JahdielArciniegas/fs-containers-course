@@ -18,8 +18,12 @@ router.get("/", async (req, res) => {
 
 router.get("/statistics", async (req, res) => {
   let pending_todos = await redis.get("pending_todos");
+
   if (!pending_todos) {
+    await redis.set("pending_todos", "0");
     pending_todos = 0;
+  } else {
+    pending_todos = JSON.parse(pending_todos);
   }
 
   res.send({
