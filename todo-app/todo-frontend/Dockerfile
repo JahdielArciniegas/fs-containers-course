@@ -1,4 +1,4 @@
-FROM node:20-alpine AS build-stage
+FROM node:20-alpine AS base
 
 WORKDIR /usr/src/app
 
@@ -10,11 +10,20 @@ COPY . .
 
 ENV VITE_BACKEND_URL=http://localhost:3000
 
+FROM base AS test
+
+ENV NODE_ENV=test
+ENV CI=true
+
+RUN npm run test
+
+FROM base AS build
+
 RUN npm run build
 
 FROM nginx:alpine
 
-COPY --from=build-stage /usr/src/app/dist /usr/share/nginx/html
+COPY --from=build /usr/src/app/dist /usr/share/nginx/html
 
 EXPOSE 80
 
