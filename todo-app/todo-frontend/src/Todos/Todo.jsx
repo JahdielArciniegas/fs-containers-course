@@ -8,7 +8,7 @@ const Todo = ({ todo, deleteTodo, completeTodo }) => {
 
   const notDoneInfo = (
     <>
-      <span>This todo is pending</span>
+      <span>This todo is pending ...</span>
       <span>
         <button onClick={() => completeTodo(todo)}>Complete</button>
         <button onClick={() => deleteTodo(todo)}>Delete</button>
