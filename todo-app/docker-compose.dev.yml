@@ -7,6 +7,14 @@ services:
     volumes:
       - ./todo-frontend:/usr/src/app
     container_name: hello-front-dev
+  api:
+    image: todo-backend-dev
+    build:
+      context: ./todo-backend
+      dockerfile: dev.Dockerfile
+    volumes:
+      - ./todo-backend:/usr/src/app
+    container_name: todo-backend-dev
   nginx:
     image: nginx:1.29
     volumes:
