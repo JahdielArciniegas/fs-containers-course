@@ -7,6 +7,8 @@ services:
     volumes:
       - ./todo-frontend:/usr/src/app
     container_name: hello-front-dev
+    environment:
+      - VITE_BACKEND_URL=http://localhost:8080/api
   api:
     image: todo-backend-dev
     build:
@@ -15,6 +17,12 @@ services:
     volumes:
       - ./todo-backend:/usr/src/app
     container_name: todo-backend-dev
+    depends_on:
+      - mongo
+      - redis
+    environment:
+      - MONGO_URL=mongodb://root:example@mongo:27017/the_database?authSource=admin
+      - REDIS_URL=redis://redis:6379
   nginx:
     image: nginx:1.29
     volumes:
@@ -24,3 +32,20 @@ services:
     container_name: reverse-proxy
     depends_on:
       - app
+  mongo:
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_DATABASE: the_database
+    volumes:
+      - ./mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+      - mongo_data:/data/db
+  redis:
+    image: redis
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - redis_data:/data
+volumes:
+  mongo_data:
+  redis_data:
