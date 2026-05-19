@@ -1,0 +1,41 @@
+services:
+  frontend:
+    image: ecommerce-frontend-prod
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile
+    container_name: ecommerce-frontend-prod
+    environment:
+      - VITE_API_URL=/api
+  backend:
+    image: ecommerce-backend-prod
+    build:
+      context: ./Backend
+      dockerfile: Dockerfile
+    container_name: ecommerce-backend-prod
+    depends_on:
+      - mongo
+    environment:
+      - MONGO_URI=mongodb://root:root@mongo:27017/ecommerce?authSource=admin
+      - JWT_SECRET=miClaveSecreta123
+      - CLIENT_URL=http://localhost:8080
+  nginx:
+    image: nginx:1.29
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "80:80"
+    container_name: ecommerce-nginx-prod
+    depends_on:
+      - frontend
+      - backend
+  mongo:
+    image: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=root
+      - MONGO_INITDB_DATABASE=ecommerce
+    volumes:
+      - mongo_data:/data/db
+volumes:
+  mongo_data:
