@@ -8,8 +8,6 @@ RUN npm ci
 
 COPY . .
 
-ENV VITE_BACKEND_URL=/api
-
 FROM base AS test
 
 ENV NODE_ENV=test

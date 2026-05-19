@@ -5,8 +5,6 @@ services:
       context: ./todo-frontend
       dockerfile: Dockerfile
     container_name: todo-frontend-app
-    environment:
-      - VITE_BACKEND_URL=/api
   api:
     image: todo-backend
     build:
@@ -25,7 +23,7 @@ services:
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
     ports:
-      - 80:80
+      - 8080:80
     container_name: reverse-proxy
     depends_on:
       - app
