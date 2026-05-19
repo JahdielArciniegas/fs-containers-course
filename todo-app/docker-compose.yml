@@ -1,6 +1,6 @@
 services:
   app:
-    image: todo-frontend-app
+    image: todo-front
     build:
       context: ./todo-frontend
       dockerfile: Dockerfile
