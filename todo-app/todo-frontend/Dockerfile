@@ -8,7 +8,7 @@ RUN npm ci
 
 COPY . .
 
-ENV VITE_BACKEND_URL=http://localhost:3000
+ENV VITE_BACKEND_URL=/api
 
 FROM base AS test
 
